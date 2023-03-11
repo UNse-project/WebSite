@@ -1,5 +1,5 @@
-# Website of UNse
-Websites using Hugo
+# Website of UNse Project
+Built with [Hugo](https://gohugo.io/)
 
 ---
 
