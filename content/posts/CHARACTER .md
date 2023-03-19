@@ -5,23 +5,23 @@ date: '2023-03-06'
 
 ## 鮪崎マオ（Shibisaki Mao）
 
-![image](images/ima_01_01.png)
+![image](static\images\ima_01_01.png)
 
-illustrator : 砂潜 (＠sunamogurii)
+illustrator : 砂潜 ([＠sunamogurii](https://twitter.com/sunamogurii))
 
 
 ***
 
  ### COEIROINK（コエイロインク）
 
-[download](https://drive.google.com/drive/folders/1FNFMP8WDFBKIMX8hOlwFC5PedVjNpRGr?usp=sharing "TTS")
+[download](https://drive.google.com/drive/folders/1FNFMP8WDFBKIMX8hOlwFC5PedVjNpRGr?usp=sharing "COEIROINK_model")
 
 [COEIROINK_HOME PAGE](https://coeiroink.com/ "COEIROINK_HOME PAGE")
 
 
  ### DeepVocal（ディープボーカル）
 
- [download](https://drive.google.com/drive/folders/1MGw83c29d_qh93rk-m_Jt6QVGrenWHLI?usp=sharing "singing synthesizer")
+ [download](https://drive.google.com/drive/folders/1MGw83c29d_qh93rk-m_Jt6QVGrenWHLI?usp=sharing "DeepVocal_model")
 
  [DeepVocal_HOME PAGE](https://www.deep-vocal.com/#/ "DeepVocal_HOME PAGE")
 
