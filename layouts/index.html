@@ -1,9 +1,22 @@
 {{ define "main" }}
 <section class="section">
-  <main class="container">
-    {{ range first 5 .Site.RegularPages }}
-    {{ .Render "summary" }}
-    {{ end }}
-  </main>
+  <div class="hero-body">
+    <p class="title">
+      Welcome to UNSe Website!
+    </p>
+    <p class="subtitle">
+      We hope you enjoy your stay! 🥳🎉
+    </p>
+    <div class="block">
+      <a class="block button title is-4 has-text-link-dark has-background-light" href="/characters">
+        Characters List
+      </a>
+    </div>
+    <div class="block">
+      <a class="block button title is-4 has-text-link-dark has-background-light" href="/tiles">
+        Sample Tiles Page
+      </a>
+    </div>
+  </div>
 </section>
 {{ end }}

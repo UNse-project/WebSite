@@ -1,4 +1,4 @@
-<nav class="navbar is-dark">
+<nav class="navbar is-info" role="navigation" aria-label="main navigation">
   <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
@@ -6,13 +6,23 @@
       </a>
     </div>
 
-    <div class="navbar-start">
-      <a class="navbar-item" href="/">
-        Home
-      </a>
-      <a class="navbar-item" href="/posts">
-        Posts
-      </a>
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Characters
+          </a>
+
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/characters/shibisaki_mao">
+              Shibisaki Mao
+            </a>
+          </div>
+        </div>
+        <a class="navbar-item" href="/tiles">
+          Tiles
+        </a>
+      </div>
     </div>
   </div>
 </nav>
