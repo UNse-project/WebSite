@@ -4,12 +4,18 @@
       <a class="navbar-item" href="/">
         {{ $.Site.Title }}
       </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarUnSe">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
 
-    <div class="navbar-menu">
+    <div id="navbarUnSe" class="navbar-menu">
       <div class="navbar-start">
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
+          <a class="navbar-link" href="/characters">
             Characters
           </a>
 
