@@ -1,7 +1,10 @@
-# Block all crawlers except AdsBot (AdsBot crawlers must be named explicitly)
+# Allow all crawlers except AdsBot (AdsBot crawlers must be named explicitly)
 User-agent: *
+Disallow:
+
+# Block Adsbot crawlers
+User-agent: AdsBot-Google
 Disallow: /
 
-# Block Adsbot
-User-agent: AdsBot-Google
+User-agent: AdsBot-Google-Mobile
 Disallow: /
