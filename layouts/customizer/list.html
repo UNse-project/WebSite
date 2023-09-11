@@ -1,0 +1,171 @@
+{{ define "main" }}
+
+<script type="text/javascript" src="/js/customizer/customizer.js"></script>
+
+<div style="display: none">
+  <img class="customized-char-part" id="customized-char-body" style="position: absolute; z-index: 1"
+       src="/img/mao_shibisaki/stationary/body.png">
+  <img class="customized-char-part" id="customized-char-specs" style="position: absolute; z-index: 2"
+       src="/img/mao_shibisaki/stationary/specs1.png">
+  <img class="customized-char-part" id="customized-char-eyebrows" style="position: absolute; z-index: 3"
+       src="/img/mao_shibisaki/eyebrows/eyebrows1.png">
+  <img class="customized-char-part" id="customized-char-eyes" style="position: absolute; z-index: 4"
+       src="/img/mao_shibisaki/eyes/eyes5.png">
+  <img class="customized-char-part" id="customized-char-mouth" style="position: absolute; z-index: 5"
+       src="/img/mao_shibisaki/mouth/mouth4.png">
+  <img class="customized-char-part" id="customized-char-emotion" style="position: absolute; z-index: 6"
+       src="/img/mao_shibisaki/emotion/cheeks.png">
+</div>
+
+<div class="customizations">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Spec</th>
+      <th>Eyebrows</th>
+      <th>Eyes</th>
+      <th>Mouth</th>
+      <th>Emotion</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><a class="customization-option customization-specs" id="customization-specs1" data-type="customization-specs"
+             data-value="specs1">Full</a>
+      </td>
+      <td><a class="customization-option customization-eyebrows" id="customization-eyebrows1"
+             data-type="customization-eyebrows"
+             data-value="eyebrows1">Eyebrows1</a>
+      </td>
+      <td><a class="customization-option customization-eyes" id="customization-eyes1" data-type="customization-eyes"
+             data-value="eyes1">Eyes1</a>
+      </td>
+      <td><a class="customization-option customization-mouth" id="customization-mouth1" data-type="customization-mouth"
+             data-value="mouth1">Mouth1</a>
+      </td>
+      <td><a class="customization-option customization-emotion" id="customization-emotion1"
+             data-type="customization-emotion"
+             data-value="emotion1">Emotion1</a>
+      </td>
+    </tr>
+    <tr>
+      <td><a class="customization-option customization-specs" id="customization-specs2" data-type="customization-specs"
+             data-value="specs2">Frame</a>
+      </td>
+      <td><a class="customization-option customization-eyebrows" id="customization-eyebrows2"
+             data-type="customization-eyebrows"
+             data-value="eyebrows2">Eyebrows2</a>
+      </td>
+      <td><a class="customization-option customization-eyes" id="customization-eyes2" data-type="customization-eyes"
+             data-value="eyes2">Eyes2</a>
+      </td>
+      <td><a class="customization-option customization-mouth" id="customization-mouth2" data-type="customization-mouth"
+             data-value="mouth2">Mouth2</a>
+      </td>
+      <td><a class="customization-option customization-emotion" id="customization-emotion2"
+             data-type="customization-emotion"
+             data-value="emotion2">Emotion2</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td><a class="customization-option customization-eyebrows" id="customization-eyebrows3"
+             data-type="customization-eyebrows"
+             data-value="eyebrows3">Eyebrows3</a>
+      </td>
+      <td><a class="customization-option customization-eyes" id="customization-eyes3" data-type="customization-eyes"
+             data-value="eyes3">Eyes3</a>
+      </td>
+      <td><a class="customization-option customization-mouth" id="customization-mouth3" data-type="customization-mouth"
+             data-value="mouth3">Mouth3</a>
+      </td>
+      <td><a class="customization-option customization-emotion" id="customization-emotion3"
+             data-type="customization-emotion"
+             data-value="emotion3">Emotion3</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td><a class="customization-option customization-eyebrows" id="customization-eyebrows4"
+             data-type="customization-eyebrows"
+             data-value="eyebrows4">Eyebrows4</a>
+      </td>
+      <td><a class="customization-option customization-eyes" id="customization-eyes4" data-type="customization-eyes"
+             data-value="eyes4">Eyes4</a>
+      </td>
+      <td><a class="customization-option customization-mouth" id="customization-mouth4" data-type="customization-mouth"
+             data-value="mouth4">Mouth4</a>
+      </td>
+      <td><a class="customization-option customization-emotion" id="customization-emotion4"
+             data-type="customization-emotion"
+             data-value="emotion4">Emotion4</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td><a class="customization-option customization-eyebrows" id="customization-eyebrows5"
+             data-type="customization-eyebrows"
+             data-value="eyebrows5">Eyebrows5</a>
+      </td>
+      <td><a class="customization-option customization-eyes" id="customization-eyes5" data-type="customization-eyes"
+             data-value="eyes5">Eyes5</a>
+      </td>
+      <td><a class="customization-option customization-mouth" id="customization-mouth5" data-type="customization-mouth"
+             data-value="mouth5">Mouth5</a>
+      </td>
+      <td><a class="customization-option customization-emotion" id="customization-emotion5"
+             data-type="customization-emotion"
+             data-value="emotion5">Emotion5</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td><a class="customization-option customization-eyes" id="customization-eyes6" data-type="customization-eyes"
+             data-value="eyes6">Eyes6</a>
+      </td>
+      <td><a class="customization-option customization-mouth" id="customization-mouth6" data-type="customization-mouth"
+             data-value="mouth6">Mouth6</a>
+      </td>
+      <td><a class="customization-option customization-emotion" id="customization-emotion-cheeks"
+             data-type="customization-emotion"
+             data-value="cheeks">Cheeks</a>
+      </td>
+    </tr>
+    <tr>
+      <td><a class="customization-option customization-specs" id="customization-specs-none"
+             data-type="customization-specs"
+             data-value="none">None</a>
+      </td>
+      <td><a class="customization-option customization-eyebrows" id="customization-eyebrows-none"
+             data-type="customization-eyebrows"
+             data-value="none">None</a>
+      </td>
+      <td><a class="customization-option customization-eyes" id="customization-eyes-none" data-type="customization-eyes"
+             data-value="none">None</a>
+      </td>
+      <td><a class="customization-option customization-mouth" id="customization-mouth-none"
+             data-type="customization-mouth"
+             data-value="none">None</a>
+      </td>
+      <td><a class="customization-option customization-emotion" id="customization-emotion-none"
+             data-type="customization-emotion"
+             data-value="none">None</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<canvas id="customized-canvas" width="985" height="2197" style="display: none"></canvas>
+
+<div>
+  <img id="customized-char">
+</div>
+
+{{ end }}
