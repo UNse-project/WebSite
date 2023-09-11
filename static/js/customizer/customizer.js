@@ -105,6 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+updateCanvas();
+
 function updateCanvas() {
   const customizedCanvas = document.getElementById('customized-canvas');
   const context = customizedCanvas.getContext('2d');
