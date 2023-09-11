@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (customizationValue === 'none') {
           customizedSpecs.src = "";
         } else {
-          customizedSpecs.src = `/img/mao_shibisaki/stationary/${customizationValue}.png?` + new Date().getTime();
+          customizedSpecs.src = `/img/mao_shibisaki/stationary/${customizationValue}.png?`;
         }
-        customizedSpecs.onload = function () {
+        customizedSpecs.onload = () => {
           updateCanvas();
         }
       }
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           customizedEyebrows.src = `/img/mao_shibisaki/eyebrows/${customizationValue}.png`;
         }
-        customizedEyebrows.onload = function () {
+        customizedEyebrows.onload = () => {
           updateCanvas();
         }
       }
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           customizedEyes.src = `/img/mao_shibisaki/eyes/${customizationValue}.png`;
         }
-        customizedEyes.onload = function () {
+        customizedEyes.onload = () => {
           updateCanvas();
         }
       }
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           customizedMouth.src = `/img/mao_shibisaki/mouth/${customizationValue}.png`;
         }
-        customizedMouth.onload = function () {
+        customizedMouth.onload = () => {
           updateCanvas();
         }
       }
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           customizedEmotion.src = `/img/mao_shibisaki/emotion/${customizationValue}.png?`;
         }
-        customizedEmotion.onload = function () {
+        customizedEmotion.onload = () => {
           updateCanvas();
         }
       }
@@ -104,8 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-
-updateCanvas();
 
 function updateCanvas() {
   const customizedCanvas = document.getElementById('customized-canvas');
@@ -120,13 +118,12 @@ function updateCanvas() {
   });
 
   images.forEach(image => {
-    context.drawImage(image, 0, 0);
+    image.onload = () => {
+      context.drawImage(image, 0, 0);
+    }
   });
 
   const combinedImageURL = customizedCanvas.toDataURL();
-
-  const combinedImage = new Image();
-  combinedImage.src = combinedImageURL;
 
   const customizedChar = document.getElementById('customized-char');
   customizedChar.src = combinedImageURL;
