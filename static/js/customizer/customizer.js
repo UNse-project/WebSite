@@ -118,9 +118,7 @@ function updateCanvas() {
   });
 
   images.forEach(image => {
-    image.onload = () => {
-      context.drawImage(image, 0, 0);
-    }
+    context.drawImage(image, 0, 0);
   });
 
   const combinedImageURL = customizedCanvas.toDataURL();
