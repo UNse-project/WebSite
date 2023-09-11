@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   setDefaultCustomizations();
+  updateCanvas();
 
   const customizationOptions = document.querySelectorAll('.customization-option');
 
@@ -102,7 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
       updateCanvas();
     });
   });
-  updateCanvas();
 });
 
 function updateCanvas() {
