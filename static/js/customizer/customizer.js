@@ -105,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener("load", (event) => {
   updateCanvas();
+  renderOption();
 });
 
 function updateCanvas() {
@@ -135,4 +136,47 @@ function setDefaultCustomizations() {
   document.getElementById('customization-eyes5').parentElement.style.fontWeight = 'bold';
   document.getElementById('customization-mouth4').parentElement.style.fontWeight = 'bold';
   document.getElementById('customization-emotion-cheeks').parentElement.style.fontWeight = 'bold';
+}
+
+function renderOption() {
+  // Define the dimensions of the cropped area
+  const cropX = 350; // X-coordinate of the top-left corner of the cropped area
+  const cropY = 150; // Y-coordinate of the top-left corner of the cropped area
+  const cropWidth = 300; // Width of the cropped area
+  const cropHeight = 200; // Height of the cropped area
+
+  const image1 = new Image();
+  image1.src = '/img/mao_shibisaki/eyes/eyes1.png';
+  const image2 = new Image();
+  image2.src = '/img/mao_shibisaki/eyes/eyes2.png';
+  const image3 = new Image();
+  image3.src = '/img/mao_shibisaki/eyes/eyes4.png';
+
+  const optionCanvas = document.getElementById('option-canvas');
+  optionCanvas.width = cropWidth;
+  optionCanvas.height = cropHeight;
+
+  const context = optionCanvas.getContext('2d');
+  //context.drawImage(image, 0, 0);
+  context.drawImage(image1, cropX, cropY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
+
+  const customizedOption1 = document.getElementById('option-img1');
+  customizedOption1.width = 100;
+  customizedOption1.src = optionCanvas.toDataURL();
+
+  context.clearRect(0, 0, optionCanvas.width, optionCanvas.height);
+
+  context.drawImage(image2, cropX, cropY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
+
+  const customizedOption2 = document.getElementById('option-img2');
+  customizedOption2.width = 100;
+  customizedOption2.src = optionCanvas.toDataURL();
+
+  context.clearRect(0, 0, optionCanvas.width, optionCanvas.height);
+
+  context.drawImage(image3, cropX, cropY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
+
+  const customizedOption3 = document.getElementById('option-img3');
+  customizedOption3.width = 100;
+  customizedOption3.src = optionCanvas.toDataURL();
 }
