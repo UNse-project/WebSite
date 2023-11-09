@@ -6,6 +6,7 @@ date: '2023-03-06'
 ## 鮪崎マオ（Shibisaki Mao）
 
 ![image](/img/char/ima_01_01.png)
+![image](/img/char/ima_01_02.png)
 
 illustrator : 砂潜 ([＠sunamogurii](https://twitter.com/sunamogurii))
 
@@ -23,6 +24,10 @@ illustrator : 砂潜 ([＠sunamogurii](https://twitter.com/sunamogurii))
 [download](https://drive.google.com/drive/folders/1MGw83c29d_qh93rk-m_Jt6QVGrenWHLI?usp=sharing "DeepVocal_model")
 
 [DeepVocal_HOME PAGE](https://www.deep-vocal.com/#/ "DeepVocal_HOME PAGE")
+
+### Illustration
+
+[download](https://drive.google.com/drive/folders/1kUP_6A_89mCP5KTM_X3C1QXxTu2MyiBV?usp=sharing "google drave")
 
 ***
 
