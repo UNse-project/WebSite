@@ -5,7 +5,7 @@ date: '2023-03-06'
 
 ## 鮪崎マオ（Shibisaki Mao）
 
-![image](/img/char/ima_01_01.png)
+![image](/img/char/ima_01_03.png)
 ![image](/img/char/ima_01_02.png)
 
 illustrator : 砂潜 ([＠sunamogurii](https://twitter.com/sunamogurii))
