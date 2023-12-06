@@ -211,14 +211,13 @@ function renderIconSelections() {
   for (const emotion of emotions) {
     const emotionImg = new Image();
     emotionImg.src = `/img/mao_shibisaki/emotion/${emotion}.png`;
-    const cropX = 350; // X-coordinate of the top-left corner of the cropped area
+    const cropX = 335; // X-coordinate of the top-left corner of the cropped area
     const cropY = 150; // Y-coordinate of the top-left corner of the cropped area
     const cropWidth = 300; // Width of the cropped area
-    const cropHeight = 300; // Height of the cropped area
 
     const optionCanvas = document.getElementById("option-canvas");
     optionCanvas.width = cropWidth;
-    optionCanvas.height = cropHeight;
+    optionCanvas.height = cropWidth;
 
     const context = optionCanvas.getContext("2d");
     context.clearRect(0, 0, optionCanvas.width, optionCanvas.height);
@@ -227,14 +226,14 @@ function renderIconSelections() {
       cropX,
       cropY,
       cropWidth,
-      cropHeight,
+      cropWidth,
       0,
       0,
       cropWidth,
-      cropHeight
+      cropWidth
     );
     const finalImg = new Image();
-    finalImg.style.width = "50px";
+    finalImg.style.width = "75px";
     finalImg.style.margin = "5px";
     finalImg.style.border = "2px solid blue";
     finalImg.style.borderRadius = "10px";
