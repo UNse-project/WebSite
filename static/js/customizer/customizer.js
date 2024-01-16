@@ -1,130 +1,23 @@
 const CLASS_SELECTED = "selected";
-
-document.addEventListener("DOMContentLoaded", () => {
-  setDefaultCustomizations();
-
-  const customizationOptions = document.querySelectorAll(
-    ".customization-option"
-  );
-
-  customizationOptions.forEach((customizationOption) => {
-    customizationOption.addEventListener("click", () => {
-      const customizationType = customizationOption.dataset.type;
-      const customizationValue = customizationOption.dataset.value;
-
-      const customizedSpecs = document.getElementById("customized-char-specs");
-      const customizedEyebrows = document.getElementById(
-        "customized-char-eyebrows"
-      );
-      const customizedEyes = document.getElementById("customized-char-eyes");
-      const customizedMouth = document.getElementById("customized-char-mouth");
-      const customizedEmotion = document.getElementById(
-        "customized-char-emotion"
-      );
-
-      if (customizationType === "customization-specs") {
-        const customizationSpecs = document.querySelectorAll(
-          ".customization-specs"
-        );
-        customizationSpecs.forEach((elem) => {
-          elem.parentElement.style.fontWeight = "normal";
-        });
-        customizationOption.parentElement.style.fontWeight = "bold";
-
-        if (customizationValue === "none") {
-          customizedSpecs.src = "";
-        } else {
-          customizedSpecs.src = `/img/mao_shibisaki/stationary/${customizationValue}.png?`;
-        }
-        customizedSpecs.onload = () => {
-          updateCanvas();
-        };
-      }
-
-      if (customizationType === "customization-eyebrows") {
-        const customizationEyebrows = document.querySelectorAll(
-          ".customization-eyebrows"
-        );
-        customizationEyebrows.forEach((elem) => {
-          elem.parentElement.style.fontWeight = "normal";
-        });
-        customizationOption.parentElement.style.fontWeight = "bold";
-
-        if (customizationValue === "none") {
-          customizedEyebrows.src = "";
-        } else {
-          customizedEyebrows.src = `/img/mao_shibisaki/eyebrows/${customizationValue}.png`;
-        }
-        customizedEyebrows.onload = () => {
-          updateCanvas();
-        };
-      }
-
-      if (customizationType === "customization-eyes") {
-        const customizationEyes = document.querySelectorAll(
-          ".customization-eyes"
-        );
-        customizationEyes.forEach((elem) => {
-          elem.parentElement.style.fontWeight = "normal";
-        });
-        customizationOption.parentElement.style.fontWeight = "bold";
-
-        if (customizationValue === "none") {
-          customizedEyes.src = "";
-        } else {
-          customizedEyes.src = `/img/mao_shibisaki/eyes/${customizationValue}.png`;
-        }
-        customizedEyes.onload = () => {
-          updateCanvas();
-        };
-      }
-
-      if (customizationType === "customization-mouth") {
-        const customizationMouth = document.querySelectorAll(
-          ".customization-mouth"
-        );
-        customizationMouth.forEach((elem) => {
-          elem.parentElement.style.fontWeight = "normal";
-        });
-        customizationOption.parentElement.style.fontWeight = "bold";
-
-        if (customizationValue === "none") {
-          customizedMouth.src = "";
-        } else {
-          customizedMouth.src = `/img/mao_shibisaki/mouth/${customizationValue}.png`;
-        }
-        customizedMouth.onload = () => {
-          updateCanvas();
-        };
-      }
-
-      if (customizationType === "customization-emotion") {
-        const customizationEmotion = document.querySelectorAll(
-          ".customization-emotion"
-        );
-        customizationEmotion.forEach((elem) => {
-          elem.parentElement.style.fontWeight = "normal";
-        });
-        customizationOption.parentElement.style.fontWeight = "bold";
-
-        if (customizationValue === "none") {
-          customizedEmotion.src = "";
-        } else {
-          customizedEmotion.src = `/img/mao_shibisaki/emotion/${customizationValue}.png?`;
-        }
-        customizedEmotion.onload = () => {
-          updateCanvas();
-        };
-      }
-      updateCanvas();
-    });
-  });
-});
+const CLASS_INVISIBLE = "invisible";
 
 window.addEventListener("load", (event) => {
   updateCanvas();
+
+  addCSSClassToChildElements("icons-selection-area", CLASS_INVISIBLE);
   renderIcons();
-  renderIconSelections();
+  const categories = [
+    ["cheeks", 2],
+    ["emotion", 7],
+    ["mouth", 12],
+    ["eyes", 10],
+    ["sweat", 3],
+    ["specs", 2],
+    ["eyebrows", 5],
+  ];
+  for (const category of categories) {
+    renderIconSelections("mao_shibisaki", category[0], category[1]);
+  }
 });
 
 function updateCanvas() {
@@ -149,68 +42,54 @@ function updateCanvas() {
   customizedChar.src = combinedImageURL;
 }
 
-function setDefaultCustomizations() {
-  document.getElementById(
-    "customization-specs1"
-  ).parentElement.style.fontWeight = "bold";
-  document.getElementById(
-    "customization-eyebrows1"
-  ).parentElement.style.fontWeight = "bold";
-  document.getElementById(
-    "customization-eyes5"
-  ).parentElement.style.fontWeight = "bold";
-  document.getElementById(
-    "customization-mouth4"
-  ).parentElement.style.fontWeight = "bold";
-  document.getElementById(
-    "customization-emotion-cheeks"
-  ).parentElement.style.fontWeight = "bold";
-}
-
 function renderIcons() {
-  const iconList = [
+  const iconCategories = [
+    "cheeks",
     "emotion",
     "mouth",
     "eyes",
-    "sweat_tears",
-    "glasses",
+    "sweat",
+    "specs",
     "eyebrows",
   ];
   const iconsArea = document.getElementById("icons-area");
 
-  for (const icon of iconList) {
+  for (const category of iconCategories) {
     const iconImg = new Image();
-    iconImg.src = `../img/icons/${icon}.png`;
+    iconImg.src = `../img/icons/${category}.png`;
     iconImg.style.width = "50px";
-    //iconImg.style.height = "50px";
     iconImg.style.margin = "5px";
-    iconImg.dataset.category = icon;
+
+    const iconSelectionArea = document.getElementById(`icons-${category}`);
 
     iconImg.addEventListener("click", () => {
       for (const iconsAreaChild of iconsArea.children) {
         iconsAreaChild.classList.remove(CLASS_SELECTED);
       }
       iconImg.classList.add(CLASS_SELECTED);
+
+      addCSSClassToChildElements("icons-selection-area", CLASS_INVISIBLE);
+      iconSelectionArea.classList.remove(CLASS_INVISIBLE);
     });
 
     iconsArea.appendChild(iconImg);
   }
 }
 
-function renderIconSelections() {
-  const iconsSelectionArea = document.getElementById("icons-selection-area");
-  const emotions = [
-    "emotion1",
-    "emotion2",
-    "emotion3",
-    "emotion4",
-    "emotion5",
-    "emotion6",
-  ];
+function renderIconSelections(character, category, numItems) {
+  const iconsSelectionArea = document.getElementById(`icons-selection-area`);
 
-  for (const emotion of emotions) {
-    const emotionImg = new Image();
-    emotionImg.src = `/img/mao_shibisaki/emotion/${emotion}.png`;
+  const iconsSelectionCategory = document.getElementById(`icons-${category}`);
+  iconsSelectionCategory.classList.add(CLASS_INVISIBLE);
+
+  const iconSelections = [];
+  for (let i = 1; i < numItems + 1; i++) {
+    iconSelections.push(`${category}${i}`);
+  }
+
+  for (const iconSelection of iconSelections) {
+    const iconSelectionImg = new Image();
+    iconSelectionImg.src = `/img/${character}/${category}/${iconSelection}.png`;
     const cropX = 335; // X-coordinate of the top-left corner of the cropped area
     const cropY = 150; // Y-coordinate of the top-left corner of the cropped area
     const cropWidth = 300; // Width of the cropped area
@@ -222,7 +101,7 @@ function renderIconSelections() {
     const context = optionCanvas.getContext("2d");
     context.clearRect(0, 0, optionCanvas.width, optionCanvas.height);
     context.drawImage(
-      emotionImg,
+      iconSelectionImg,
       cropX,
       cropY,
       cropWidth,
@@ -233,88 +112,42 @@ function renderIconSelections() {
       cropWidth
     );
     const finalImg = new Image();
-    finalImg.style.width = "75px";
+    finalImg.style.width = "90px";
     finalImg.style.margin = "5px";
     finalImg.style.border = "2px solid blue";
     finalImg.style.borderRadius = "10px";
     finalImg.onload = () => {
-      console.log(`${emotion} loaded`);
+      console.log(`${iconSelection} loaded`);
     };
     finalImg.src = optionCanvas.toDataURL();
 
-    iconsSelectionArea.appendChild(finalImg);
+    finalImg.addEventListener("click", () => {
+      const customizedEmotion = document.getElementById(
+        `customized-char-${category}`
+      );
+      customizedEmotion.src = `/img/${character}/${category}/${iconSelection}.png?`;
+      updateCanvas();
+
+      for (const peerImg of finalImg.parentElement.children) {
+        peerImg.classList.remove(CLASS_SELECTED);
+      }
+      finalImg.classList.add(CLASS_SELECTED);
+
+      customizedEmotion.onload = () => {
+        updateCanvas();
+      };
+    });
+
+    iconsSelectionCategory.appendChild(finalImg);
   }
+
+  iconsSelectionArea.appendChild(iconsSelectionCategory);
 }
 
-function renderOption() {
-  // Define the dimensions of the cropped area
-  const cropX = 350; // X-coordinate of the top-left corner of the cropped area
-  const cropY = 150; // Y-coordinate of the top-left corner of the cropped area
-  const cropWidth = 300; // Width of the cropped area
-  const cropHeight = 200; // Height of the cropped area
+function addCSSClassToChildElements(parentId, cssClass) {
+  const parentElem = document.getElementById(parentId);
 
-  const image1 = new Image();
-  image1.src = "/img/mao_shibisaki/eyes/eyes1.png";
-  const image2 = new Image();
-  image2.src = "/img/mao_shibisaki/eyes/eyes2.png";
-  const image3 = new Image();
-  image3.src = "/img/mao_shibisaki/eyes/eyes4.png";
-
-  const optionCanvas = document.getElementById("option-canvas");
-  optionCanvas.width = cropWidth;
-  optionCanvas.height = cropHeight;
-
-  const context = optionCanvas.getContext("2d");
-  //context.drawImage(image, 0, 0);
-  context.drawImage(
-    image1,
-    cropX,
-    cropY,
-    cropWidth,
-    cropHeight,
-    0,
-    0,
-    cropWidth,
-    cropHeight
-  );
-
-  const customizedOption1 = document.getElementById("option-img1");
-  customizedOption1.width = 100;
-  customizedOption1.src = optionCanvas.toDataURL();
-
-  context.clearRect(0, 0, optionCanvas.width, optionCanvas.height);
-
-  context.drawImage(
-    image2,
-    cropX,
-    cropY,
-    cropWidth,
-    cropHeight,
-    0,
-    0,
-    cropWidth,
-    cropHeight
-  );
-
-  const customizedOption2 = document.getElementById("option-img2");
-  customizedOption2.width = 100;
-  customizedOption2.src = optionCanvas.toDataURL();
-
-  context.clearRect(0, 0, optionCanvas.width, optionCanvas.height);
-
-  context.drawImage(
-    image3,
-    cropX,
-    cropY,
-    cropWidth,
-    cropHeight,
-    0,
-    0,
-    cropWidth,
-    cropHeight
-  );
-
-  const customizedOption3 = document.getElementById("option-img3");
-  customizedOption3.width = 100;
-  customizedOption3.src = optionCanvas.toDataURL();
+  for (const child of parentElem.children) {
+    child.classList.add(cssClass);
+  }
 }
